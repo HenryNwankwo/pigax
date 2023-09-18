@@ -3,8 +3,29 @@
 @tailwind utilities;
 
 .main-body {
-  @apply w-full max-w-7xl mx-auto h-auto bg-slate-50;
+  @apply w-full max-w-7xl mx-auto h-auto min-h-screen bg-slate-50;
 }
 .pgx-header {
-  @apply w-full h-72 py-1.5 px-4;
+  @apply w-full h-16 flex items-center justify-between py-1.5 px-8 relative bg-gray-700;
+}
+.pgx-logo-group {
+  @apply text-orange-500 text-2xl font-semibold;
+}
+.pgx-search-login-group {
+  @apply flex flex-col md:flex-row items-center justify-center;
+}
+.pgx-search-group {
+  @apply flex items-center relative;
+}
+.pgx-search-icon {
+  @apply m-auto absolute right-3;
+}
+.pgx-search-input {
+  @apply rounded-lg px-3 py-1.5 pr-10 w-full md:w-36 lg:w-72 bg-transparent outline-2 outline-orange-500 outline text-white;
+}
+.pgx-search-input::placeholder {
+  @apply text-sm text-white;
+}
+.pgx-menu-burger {
+  @apply flex items-center justify-center w-fit h-fit;
 }
