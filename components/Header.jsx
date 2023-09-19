@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { RiMenu4Line, RiCloseLine, RiSearchLine } from 'react-icons/ri';
 import { useState } from 'react';
+import LoginForm from './LoginForm';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,21 +27,24 @@ function Header() {
         </article>
         <article className='pgx-image-login-group'>
           <div className='pgx-image-group'>
-            <Image
-              src=''
-              alt='avatar image'
-              width={40}
-              height={40}
-              className='pgx-user-avatar'
-            />
-            <p className='pgx-username'>Henry</p>
-            <button type='button' className='pgx-logout-btn'>
+            <div className='pgx-avatar-group'>
+              <p className='pgx-username'>Henry</p>
+              <Image
+                src=''
+                alt='avatar image'
+                width={40}
+                height={40}
+                className='pgx-user-avatar'
+              />
+            </div>
+            <button type='button' className='pgx-btn pgx-logout-btn'>
               Log out
             </button>
           </div>
-          <button type='button' className='pgx-login-btn'>
+          <button type='button' className='pgx-btn pgx-login-btn'>
             Login
           </button>
+          <LoginForm></LoginForm>
         </article>
       </div>
       <div className='pgx-menu-burger'>
