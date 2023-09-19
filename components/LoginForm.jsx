@@ -1,8 +1,8 @@
 import React from 'react';
 
-function LoginForm() {
+function LoginForm({ ref }) {
   return (
-    <form className='pgx-login-form'>
+    <form className='pgx-login-form' ref={ref}>
       <hr className='pgx-hr' />
       <p className='text-center text-white text-lg md:text-slate-700 '>
         Log into your account here

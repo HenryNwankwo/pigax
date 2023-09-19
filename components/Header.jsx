@@ -7,28 +7,54 @@ import {
   RiSearchLine,
   RiArrowRightLine,
 } from 'react-icons/ri';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LoginForm from './LoginForm';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const navRef = useRef(null);
+  const getStartedRef = useRef(null);
+  const menuRef = useRef(null);
+  const loginFormRef = useRef(null);
 
+  //Toggling login form
   const openLoginHandler = () => {
     setIsLoginOpen((prev) => !prev);
   };
+
+  //Toggling menu
   const menuHandler = () => {
     setIsMenuOpen((prev) => !prev);
   };
+
+  //Handling menu click outside
+  useEffect(() => {
+    const loginFormClickHandler = (e) => {
+      if (
+        loginFormRef.current &&
+        !loginFormRef.current.contains(e.target) &&
+        !getStartedRef.current.contains(e.target)
+      ) {
+        setIsLoginOpen((prev) => (prev === true ? false : prev));
+        console.log(isLoginOpen);
+      }
+    };
+    window.addEventListener('click', loginFormClickHandler);
+
+    return () => {
+      window.removeEventListener('click', loginFormClickHandler);
+    };
+  }, []);
+
   return (
     <section className='pgx-header'>
       <div className='pgx-logo-group'>
         <Link href='/'>Pigax</Link>
       </div>
       <div
-        className={`pgx-search-login-group ${
-          isMenuOpen ? 'flex' : 'hidden md:flex'
-        }`}
+        className={`pgx-search-login-group ${isMenuOpen ? 'flex' : 'hidden'}`}
+        ref={navRef}
       >
         <article className='pgx-search-group'>
           <input
@@ -62,14 +88,15 @@ function Header() {
             type='button'
             className='pgx-btn pgx-login-btn'
             onClick={openLoginHandler}
+            ref={getStartedRef}
           >
             Get started{' '}
             <RiArrowRightLine className='ml-2 text-lg text-white'></RiArrowRightLine>
           </button>
-          {isLoginOpen ? <LoginForm></LoginForm> : null}
+          {isLoginOpen ? <LoginForm ref={loginFormRef}></LoginForm> : null}
         </article>
       </div>
-      <div className='pgx-menu-burger' onClick={menuHandler}>
+      <div className='pgx-menu-burger' onClick={menuHandler} ref={menuRef}>
         {isMenuOpen ? (
           <RiCloseLine className='text-3xl text-orange-500'></RiCloseLine>
         ) : (
