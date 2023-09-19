@@ -12,12 +12,24 @@ import LoginForm from './LoginForm';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const openLoginHandler = () => {
+    setIsLoginOpen((prev) => !prev);
+  };
+  const menuHandler = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
   return (
     <section className='pgx-header'>
       <div className='pgx-logo-group'>
         <Link href='/'>Pigax</Link>
       </div>
-      <div className='pgx-search-login-group'>
+      <div
+        className={`pgx-search-login-group ${
+          isMenuOpen ? 'flex' : 'hidden md:flex'
+        }`}
+      >
         <article className='pgx-search-group'>
           <input
             type='text'
@@ -46,14 +58,18 @@ function Header() {
               Log out
             </button>
           </div>
-          <button type='button' className='pgx-btn pgx-login-btn'>
+          <button
+            type='button'
+            className='pgx-btn pgx-login-btn'
+            onClick={openLoginHandler}
+          >
             Get started{' '}
             <RiArrowRightLine className='ml-2 text-lg text-white'></RiArrowRightLine>
           </button>
-          <LoginForm></LoginForm>
+          {isLoginOpen ? <LoginForm></LoginForm> : null}
         </article>
       </div>
-      <div className='pgx-menu-burger'>
+      <div className='pgx-menu-burger' onClick={menuHandler}>
         {isMenuOpen ? (
           <RiCloseLine className='text-3xl text-orange-500'></RiCloseLine>
         ) : (
