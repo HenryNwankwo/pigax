@@ -80,7 +80,7 @@
   @apply p-8 pt-[5rem] h-auto min-h-[80vh] bg-white w-full flex flex-col space-y-4;
 }
 .pgx-gallery-heading {
-  @apply text-3xl font-semibold;
+  @apply text-3xl font-semibold h-16;
 }
 
 /* ======================
