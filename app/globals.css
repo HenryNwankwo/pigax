@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 .main-body {
-  @apply w-full max-w-7xl mx-auto h-auto min-h-screen bg-slate-50;
+  @apply relative w-full max-w-7xl mx-auto h-auto min-h-screen bg-slate-50;
 }
 .pgx-header {
-  @apply w-full h-16 flex items-center justify-between py-1.5 px-8 relative bg-gray-700;
+  @apply w-full h-16 flex items-center justify-between py-1.5 px-8 bg-gray-700 fixed z-50;
 }
 .pgx-logo-group {
   @apply text-orange-500 text-2xl font-semibold;
@@ -71,6 +71,21 @@
 .pgx-hr {
   @apply w-full my-3 md:hidden border border-slate-600;
 }
+
+/* =========================
+========MAIN BODY==========
+======================== */
+
+.pgx-main-section {
+  @apply p-8 pt-[5rem] h-auto min-h-[80vh] bg-white w-full flex flex-col space-y-4;
+}
+.pgx-gallery-heading {
+  @apply text-3xl font-semibold;
+}
+
+/* ======================
+========FOOTER========
+====================== */
 
 .pgx-footer {
   @apply flex flex-col items-center justify-center space-y-2.5 bg-gray-700 text-gray-300 py-8;
