@@ -1,7 +1,12 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { RiMenu4Line, RiCloseLine, RiSearchLine } from 'react-icons/ri';
+import {
+  RiMenu4Line,
+  RiCloseLine,
+  RiSearchLine,
+  RiArrowRightLine,
+} from 'react-icons/ri';
 import { useState } from 'react';
 import LoginForm from './LoginForm';
 
@@ -42,7 +47,8 @@ function Header() {
             </button>
           </div>
           <button type='button' className='pgx-btn pgx-login-btn'>
-            Login
+            Get started{' '}
+            <RiArrowRightLine className='ml-2 text-lg text-white'></RiArrowRightLine>
           </button>
           <LoginForm></LoginForm>
         </article>

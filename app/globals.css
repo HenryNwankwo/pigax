@@ -31,7 +31,7 @@
   @apply flex md:hidden items-center justify-center w-fit h-fit;
 }
 .pgx-image-login-group {
-  @apply flex flex-col items-center justify-center md:flex-row w-full md:w-fit space-y-3 md:space-y-0;
+  @apply flex flex-col items-center justify-center md:flex-row w-full md:w-fit space-y-3 md:space-y-0 relative;
 }
 .pgx-btn {
   @apply w-full px-4 py-2 md:px-6 md:w-fit;
@@ -49,8 +49,24 @@
   @apply w-12 h-12 rounded-full border-2 border-white;
 }
 .pgx-login-btn {
-  @apply text-white md:ml-2 rounded-full transition-all duration-200 outline outline-2 outline-orange-500  hover:outline-none hover:bg-orange-500;
+  @apply text-white flex items-center justify-center md:ml-2 rounded-full transition-all duration-200 bg-orange-500 hover:bg-orange-400;
 }
 .pgx-logout-btn {
   @apply text-white md:ml-2 rounded-full transition-all duration-200 bg-orange-500 hover:bg-orange-400;
+}
+.pgx-login-form {
+  @apply w-full md:w-[17rem] md:rounded-2xl md:bg-white md:absolute md:top-12 md:right-0 md:p-3 md:drop-shadow-md flex flex-col items-center justify-center space-y-4 mt-3;
+}
+.pgx-input-group,
+.pgx-input {
+  @apply w-full h-auto;
+}
+.pgx-input {
+  @apply text-white md:text-slate-900 rounded-full px-3 py-1.5 text-sm bg-transparent md:bg-white outline outline-2 outline-orange-500 md:outline-orange-300;
+}
+.pgx-input::placeholder {
+  @apply text-sm text-slate-300 md:text-slate-500;
+}
+.pgx-hr {
+  @apply w-full my-3 md:hidden border border-slate-600;
 }
