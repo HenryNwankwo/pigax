@@ -4,6 +4,18 @@ function Gallery() {
   return (
     <section className='pgx-gallery'>
       <GalleryCard></GalleryCard>
+
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
+
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
+      <GalleryCard></GalleryCard>
     </section>
   );
 }

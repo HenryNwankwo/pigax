@@ -4,7 +4,7 @@ import Gallery from './Gallery';
 import Loader from './Loader';
 
 function MainContainer() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   return (
     <section className='pgx-main-section'>
       <h2 className='pgx-gallery-heading'>Image Gallery</h2>

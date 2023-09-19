@@ -82,6 +82,21 @@
 .pgx-gallery-heading {
   @apply text-3xl font-semibold h-16;
 }
+.pgx-gallery {
+  @apply grid w-full max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-3;
+}
+/* .pgx-gallery > * + * {
+  @apply my-3;
+} */
+.pgx-gallery-card {
+  @apply w-[9rem] h-36 sm:w-[17.5rem] md:w-[14rem] xl:w-64 sm:h-auto my-1.5 relative;
+}
+.pgx-gallery-image {
+  @apply w-full h-full;
+}
+.pgx-pic-tag {
+  @apply absolute left-1 bottom-1 w-fit h-fit py-1 px-2 rounded-full;
+}
 
 /* ======================
 ========FOOTER========
