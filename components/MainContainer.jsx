@@ -43,7 +43,13 @@ function MainContainer() {
         </div>
       ) : (
         <Gallery>
-          <GalleryCard></GalleryCard>
+          {photos.map((photo) => (
+            <GalleryCard
+              key={photo.id}
+              imageAlt={photo.pageURL}
+              imageURL={photo.previewURL}
+            ></GalleryCard>
+          ))}
         </Gallery>
       )}
     </section>

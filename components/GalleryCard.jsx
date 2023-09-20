@@ -1,12 +1,11 @@
 import Image from 'next/image';
 
-
-function GalleryCard() {
+function GalleryCard({ imageURL, imageAlt }) {
   return (
     <article className='pgx-gallery-card'>
       <Image
-        src=''
-        alt=''
+        src={imageURL}
+        alt={imageAlt}
         width={100}
         height={100}
         className='pgx-gallery-image'
