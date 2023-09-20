@@ -1,4 +1,4 @@
-import { usePigaxContext } from '@/PigaxContext';
+import { usePigaxContext } from '@/app/PigaxContext';
 import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 

@@ -6,7 +6,14 @@ import GalleryCard from './GalleryCard';
 import { usePigaxContext } from '@/app/PigaxContext';
 
 function MainContainer() {
-  const { loading, setLoading, photos, setPhotos } = usePigaxContext();
+  const {
+    loading,
+    setLoading,
+    photos,
+    setPhotos,
+    galleryPhotos,
+    setGalleryPhotos,
+  } = usePigaxContext();
 
   const API_KEY = process.env.NEXT_PUBLIC_PIXABAY_API_KEY;
   const url = `https://pixabay.com/api/?key=${API_KEY}&image_type=photo&editors_choice=true&orientation=horizontal`;
@@ -22,6 +29,7 @@ function MainContainer() {
       })
       .then((data) => {
         setPhotos(data.hits);
+        setGalleryPhotos(data.hits);
         setLoading((prev) => (prev === true ? false : prev));
         console.log('This is the data: ', data.hits);
         console.log('This is the photos: ', photos);
@@ -44,7 +52,7 @@ function MainContainer() {
         </div>
       ) : (
         <Gallery>
-          {photos.map((photo) => (
+          {galleryPhotos.map((photo) => (
             <GalleryCard
               key={photo.id}
               imageAlt={photo.pageURL}

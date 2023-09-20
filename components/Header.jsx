@@ -9,6 +9,7 @@ import {
 } from 'react-icons/ri';
 import { useEffect, useRef, useState } from 'react';
 import LoginForm from './LoginForm';
+import Search from './Search';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,18 +57,7 @@ function Header() {
         className={`pgx-search-login-group ${isMenuOpen ? 'flex' : 'hidden'}`}
         ref={navRef}
       >
-        <article className='pgx-search-group'>
-          <input
-            type='text'
-            name='search'
-            id='search'
-            placeholder='Search for images...'
-            className='pgx-search-input'
-          />
-          <label htmlFor='search' className='pgx-search-icon'>
-            <RiSearchLine className='text-orange-500 text-2xl'></RiSearchLine>
-          </label>
-        </article>
+        <Search></Search>
         <article className='pgx-image-login-group'>
           <div className='pgx-image-group'>
             <div className='pgx-avatar-group'>
