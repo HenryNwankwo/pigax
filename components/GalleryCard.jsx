@@ -1,18 +1,23 @@
 import Image from 'next/image';
 
-function GalleryCard({ imageURL, imageAlt }) {
+function GalleryCard({ imageURL, imageAlt, tags }) {
+  const imageTags = tags.split(',', 2);
   return (
     <article className='pgx-gallery-card'>
       <Image
         src={imageURL}
         alt={imageAlt}
-        width={100}
-        height={100}
+        width={500}
+        height={500}
         className='pgx-gallery-image'
       />
-      <button type='button' className='pgx-pic-tag'>
-        Nature
-      </button>
+      <div className='pgx-tag-group'>
+        {imageTags?.map((tag) => (
+          <button type='button' className='pgx-pic-tag' key={tag}>
+            {tag}
+          </button>
+        ))}
+      </div>
     </article>
   );
 }

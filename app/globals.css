@@ -6,7 +6,7 @@
   @apply relative w-full max-w-7xl mx-auto h-auto min-h-screen bg-slate-50;
 }
 .pgx-header {
-  @apply w-full h-16 flex items-center justify-between py-1.5 px-8 bg-gray-700 fixed z-50;
+  @apply w-full max-w-7xl h-16 flex items-center justify-between py-1.5 px-8 bg-gray-700 fixed z-50;
 }
 .pgx-logo-group {
   @apply text-orange-500 text-2xl font-semibold;
@@ -92,8 +92,11 @@
 .pgx-gallery-image {
   @apply w-full h-full;
 }
+.pgx-tag-group {
+  @apply absolute bottom-2 w-full h-fit p-1 flex items-center justify-center;
+}
 .pgx-pic-tag {
-  @apply absolute left-1 bottom-1 w-fit h-fit py-1 px-2 rounded-full;
+  @apply w-fit h-fit py-0.5 px-2 rounded-full bg-black bg-opacity-50 text-xs text-white mr-1;
 }
 
 /* ======================
