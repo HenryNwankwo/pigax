@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB_9qnKg2lLWFbxFAYpOGrhxHwdeKfXtYM',
+  apiKey: `${process.env.NEXT_FIREBASE_API_KEY}`,
   authDomain: 'pigax-40ba4.firebaseapp.com',
   projectId: 'pigax-40ba4',
   storageBucket: 'pigax-40ba4.appspot.com',
