@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Gallery from './Gallery';
 import Loader from './Loader';
 import GalleryCard from './GalleryCard';
-import { usePigaxContext } from '@/PigaxContext';
+import { usePigaxContext } from '@/app/PigaxContext';
 
 function MainContainer() {
   const { loading, setLoading, photos, setPhotos } = usePigaxContext();
