@@ -63,7 +63,7 @@
   @apply w-full h-auto;
 }
 .pgx-input {
-  @apply text-white md:text-slate-900 rounded-full px-3 py-1.5 text-sm bg-transparent md:bg-white outline outline-2 outline-orange-500 md:outline-orange-300;
+  @apply text-white md:text-slate-900 rounded-full px-3 py-1.5 mb-2 text-sm bg-transparent md:bg-white outline outline-2 outline-orange-500 md:outline-orange-300;
 }
 .pgx-input::placeholder {
   @apply text-sm text-slate-300 md:text-slate-500;

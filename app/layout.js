@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <PigaxProvider>
         <body className={inter.className}>
           {children}
-          <ToastContainer newestOnTop={true} />
+          <ToastContainer />
         </body>
       </PigaxProvider>
     </html>
