@@ -1,23 +1,5 @@
-import GalleryCard from './GalleryCard';
-
-function Gallery() {
-  return (
-    <section className='pgx-gallery'>
-      <GalleryCard></GalleryCard>
-
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-      <GalleryCard></GalleryCard>
-    </section>
-  );
+function Gallery({ children }) {
+  return <section className='pgx-gallery'>{children}</section>;
 }
 
 export default Gallery;
