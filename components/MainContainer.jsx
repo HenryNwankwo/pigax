@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 import Gallery from './Gallery';
 import Loader from './Loader';
 import GalleryCard from './GalleryCard';
+import { usePigaxContext } from '@/PigaxContext';
 
 function MainContainer() {
-  const [loading, setLoading] = useState(true);
-  const [photos, setPhotos] = useState([]);
+  const { loading, setLoading, photos, setPhotos } = usePigaxContext();
+
   const API_KEY = process.env.NEXT_PUBLIC_PIXABAY_API_KEY;
   const url = `https://pixabay.com/api/?key=${API_KEY}&image_type=photo&editors_choice=true&orientation=horizontal`;
 
