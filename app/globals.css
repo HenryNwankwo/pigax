@@ -93,10 +93,10 @@
   @apply w-full h-full;
 }
 .pgx-tag-group {
-  @apply absolute bottom-2 w-full h-fit p-1 flex items-center justify-center;
+  @apply absolute bottom-1 w-full h-fit p-1 flex items-center justify-center flex-wrap;
 }
 .pgx-pic-tag {
-  @apply w-fit h-fit py-0.5 px-2 rounded-full bg-black bg-opacity-50 text-xs text-white mr-1;
+  @apply w-fit h-fit py-0.5 px-2 rounded-full bg-black bg-opacity-50 text-[0.65rem] text-white mr-1 mt-0.5;
 }
 
 /* ======================

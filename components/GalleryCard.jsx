@@ -1,7 +1,8 @@
 import Image from 'next/image';
 
 function GalleryCard({ imageURL, imageAlt, tags }) {
-  const imageTags = tags.split(',', 2);
+  const imageTags = tags.split(/[," "]+/, 3);
+  const uniqueTags = [...new Set(imageTags)];
   return (
     <article className='pgx-gallery-card'>
       <Image
@@ -12,7 +13,7 @@ function GalleryCard({ imageURL, imageAlt, tags }) {
         className='pgx-gallery-image'
       />
       <div className='pgx-tag-group'>
-        {imageTags?.map((tag) => (
+        {uniqueTags?.map((tag) => (
           <button type='button' className='pgx-pic-tag' key={tag}>
             {tag}
           </button>
