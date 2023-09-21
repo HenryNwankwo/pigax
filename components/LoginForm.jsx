@@ -1,8 +1,15 @@
+'use client';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import FormError from './FormError';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { signIn } from 'next-auth/react';
 
 function LoginForm({ ref }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
   //Handling form data
   const formik = useFormik({
     initialValues: {
@@ -19,12 +26,12 @@ function LoginForm({ ref }) {
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      console.log(values);
     },
   });
 
   return (
     <form className='pgx-login-form' ref={ref} onSubmit={formik.handleSubmit}>
-      <hr className='pgx-hr' />
       <p className='text-center text-white text-lg md:text-slate-700 '>
         Log into your account here
       </p>

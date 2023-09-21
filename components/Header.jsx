@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import {
   RiMenu4Line,
   RiCloseLine,
@@ -18,11 +19,9 @@ function Header() {
   const getStartedRef = useRef(null);
   const menuRef = useRef(null);
   const loginFormRef = useRef(null);
+  const router = useRouter();
 
   //Toggling login form
-  const openLoginHandler = () => {
-    setIsLoginOpen((prev) => !prev);
-  };
 
   //Toggling menu
   const menuHandler = () => {
@@ -77,13 +76,12 @@ function Header() {
           <button
             type='button'
             className='pgx-btn pgx-login-btn'
-            onClick={openLoginHandler}
+            onClick={() => router.push('/signin')}
             ref={getStartedRef}
           >
             Get started{' '}
             <RiArrowRightLine className='ml-2 text-lg text-white'></RiArrowRightLine>
           </button>
-          {isLoginOpen ? <LoginForm ref={loginFormRef}></LoginForm> : null}
         </article>
       </div>
       <div className='pgx-menu-burger' onClick={menuHandler} ref={menuRef}>

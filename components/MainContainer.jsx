@@ -14,9 +14,11 @@ function MainContainer() {
     setPhotos,
     galleryPhotos,
     setGalleryPhotos,
+    draggablePhotos,
+    setDraggablePhotos,
   } = usePigaxContext();
 
-  const [draggablePhotos, setDraggablePhotos] = useState(galleryPhotos);
+  //const [draggablePhotos, setDraggablePhotos] = useState(galleryPhotos);
 
   const API_KEY = process.env.NEXT_PUBLIC_PIXABAY_API_KEY;
   const url = `https://pixabay.com/api/?key=${API_KEY}&image_type=photo&editors_choice=true&orientation=horizontal`;
@@ -32,7 +34,8 @@ function MainContainer() {
       })
       .then((data) => {
         setPhotos(data.hits);
-        setGalleryPhotos(data.hits);
+        setDraggablePhotos(data.hits);
+
         setLoading((prev) => (prev === true ? false : prev));
         console.log('This is the data: ', data.hits);
         console.log('This is the photos: ', photos);
@@ -57,6 +60,7 @@ function MainContainer() {
     const [reorderedPhoto] = newPhotos.splice(result.source.index, 1);
     newPhotos.splice(result.destination.index, 0, reorderedPhoto);
     setDraggablePhotos(newPhotos);
+    setGalleryPhotos(newPhotos);
     console.log(result);
   };
 
