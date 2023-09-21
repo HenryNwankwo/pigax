@@ -3,6 +3,7 @@ import { PigaxProvider } from './PigaxContext';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import 'react-toastify/dist/ReactToastify.css';
+import SessionProvider from './SessionProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <PigaxProvider>
         <body className={inter.className}>
-          {children}
+          <SessionProvider>{children}</SessionProvider>
           <ToastContainer />
         </body>
       </PigaxProvider>

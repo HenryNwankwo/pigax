@@ -4,7 +4,7 @@ function GalleryCard({ imageURL, imageAlt, tags }) {
   const imageTags = tags.split(/[," "]+/, 3);
   const uniqueTags = [...new Set(imageTags)];
   return (
-    <article className='pgx-gallery-card'>
+    <>
       <Image
         src={imageURL}
         alt={imageAlt}
@@ -19,7 +19,7 @@ function GalleryCard({ imageURL, imageAlt, tags }) {
           </button>
         ))}
       </div>
-    </article>
+    </>
   );
 }
 
