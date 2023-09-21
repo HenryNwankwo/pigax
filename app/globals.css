@@ -56,7 +56,7 @@
   @apply text-white md:ml-2 rounded-full transition-all duration-200 bg-orange-500 hover:bg-orange-400;
 }
 .pgx-login-form {
-  @apply w-full md:w-[17rem] md:rounded-2xl md:bg-white md:absolute md:top-12 md:right-0 md:p-3 md:drop-shadow-md flex flex-col items-center justify-center space-y-4 mt-3;
+  @apply w-full md:w-[20rem] h-full md:h-fit bg-white md:rounded-2xl p-6 py-8 md:drop-shadow-lg flex flex-col items-center justify-center space-y-4;
 }
 .pgx-input-group,
 .pgx-input {
