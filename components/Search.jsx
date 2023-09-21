@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 
 function Search() {
-  const { photos, setGalleryPhotos } = usePigaxContext();
+  const { photos, draggablePhotos, setDraggablePhotos } = usePigaxContext();
 
   //console.log('This is gallery photos in search:', galleryPhotos);
 
   const searchHandler = (e) => {
-    setGalleryPhotos(
+    setDraggablePhotos(
       photos.filter((photo) => photo.tags.includes(e.target.value))
     );
   };

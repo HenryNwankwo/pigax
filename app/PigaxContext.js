@@ -7,6 +7,7 @@ export const PigaxProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [photos, setPhotos] = useState([]);
   const [galleryPhotos, setGalleryPhotos] = useState([]);
+  const [draggablePhotos, setDraggablePhotos] = useState([]);
   return (
     <PigaxContext.Provider
       value={{
@@ -16,6 +17,8 @@ export const PigaxProvider = ({ children }) => {
         setPhotos,
         galleryPhotos,
         setGalleryPhotos,
+        draggablePhotos,
+        setDraggablePhotos,
       }}
     >
       {children}
