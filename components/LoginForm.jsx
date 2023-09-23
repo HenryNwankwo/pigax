@@ -7,8 +7,6 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 
 function LoginForm({ ref }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const router = useRouter();
   //Handling form data
   const formik = useFormik({
@@ -24,9 +22,21 @@ function LoginForm({ ref }) {
         .min(9, 'Password must be up to 9 characters!')
         .required('Password is Required!'),
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      console.log(values);
+    onSubmit: async (values) => {
+      try {
+        const login = await signIn('credentials', {
+          email: values.email,
+          password: values.password,
+          redirect: false,
+          callbackUrl: '/',
+        });
+
+        if (login.ok) {
+          router.push(login.url);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
     },
   });
 

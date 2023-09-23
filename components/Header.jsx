@@ -1,16 +1,10 @@
 'use client';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import {
-  RiMenu4Line,
-  RiCloseLine,
-  RiSearchLine,
-  RiArrowRightLine,
-} from 'react-icons/ri';
+import { RiMenu4Line, RiCloseLine, RiArrowRightLine } from 'react-icons/ri';
 import { useEffect, useRef, useState } from 'react';
-import LoginForm from './LoginForm';
 import Search from './Search';
+import { signOut, useSession } from 'next-auth/react';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +14,11 @@ function Header() {
   const menuRef = useRef(null);
   const loginFormRef = useRef(null);
   const router = useRouter();
+  const session = useSession();
 
-  //Toggling login form
-
+  console.log('Header session: ', session);
+  console.log('Header session data: ', session.data);
+  console.log('Header session user: ', session.data?.user);
   //Toggling menu
   const menuHandler = () => {
     setIsMenuOpen((prev) => !prev);
@@ -58,30 +54,31 @@ function Header() {
       >
         <Search></Search>
         <article className='pgx-image-login-group'>
-          <div className='pgx-image-group'>
-            <div className='pgx-avatar-group'>
-              <p className='pgx-username'>Henry</p>
-              <Image
-                src=''
-                alt='avatar image'
-                width={40}
-                height={40}
-                className='pgx-user-avatar'
-              />
+          {session.data !== null ? (
+            <div className='pgx-image-group'>
+              <div className='pgx-avatar-group'>
+                <p className='pgx-username'>{session?.data?.user?.email}</p>
+              </div>
+              <button
+                type='button'
+                className='pgx-btn pgx-logout-btn'
+                onClick={() => signOut({ redirect: false })}
+              >
+                Log out
+              </button>
             </div>
-            <button type='button' className='pgx-btn pgx-logout-btn'>
-              Log out
+          ) : null}
+          {session.data === null ? (
+            <button
+              type='button'
+              className='pgx-btn pgx-login-btn'
+              onClick={() => router.push('/signin')}
+              ref={getStartedRef}
+            >
+              Get started{' '}
+              <RiArrowRightLine className='ml-2 text-lg text-white'></RiArrowRightLine>
             </button>
-          </div>
-          <button
-            type='button'
-            className='pgx-btn pgx-login-btn'
-            onClick={() => router.push('/signin')}
-            ref={getStartedRef}
-          >
-            Get started{' '}
-            <RiArrowRightLine className='ml-2 text-lg text-white'></RiArrowRightLine>
-          </button>
+          ) : null}
         </article>
       </div>
       <div className='pgx-menu-burger' onClick={menuHandler} ref={menuRef}>
